@@ -93,3 +93,6 @@ Thumbs.db
 [Dd]esktop.ini
 $RECYCLE.BIN/
 *.lnk
+
+# Local Netlify folder
+.netlify
