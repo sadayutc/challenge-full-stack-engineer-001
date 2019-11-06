@@ -1,5 +1,14 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import { useLayout } from '../../contexts/layoutContext';
 
-export default function ProductIndex() {
+const ProductIndex = () => {
+  const { current: { setHeaderTitle }} = useRef(useLayout());
+
+  useEffect(() => {
+    setHeaderTitle('Product');
+  }, [setHeaderTitle]);
+
   return <div>THIS IS PRODUCT INDEX</div>;
-}
+};
+
+export default ProductIndex;

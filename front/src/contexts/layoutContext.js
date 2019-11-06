@@ -3,6 +3,7 @@ import React, { createContext, useReducer } from 'react';
 const LayoutContext = createContext();
 
 const initialState = {
+  headerTitle: '',
   isMobileSidebarOpen: false,
 };
 
@@ -10,6 +11,9 @@ const layoutReducer = (state, action) => {
   switch (action.type) {
     case 'TOGGLE_MOBILE_SIDEBAR_OPEN': {
       return { isMobileSidebarOpen: !state.isMobileSidebarOpen };
+    }
+    case 'SET_HEADER_TITLE': {
+      return { headerTitle: action.payload.headerTitle };
     }
     default: {
       throw new Error(`Unsupported action type: ${action.type}`);
@@ -35,10 +39,14 @@ const useLayout = () => {
   const toggleMobileSidebarOpen = () =>
     dispatch({ type: 'TOGGLE_MOBILE_SIDEBAR_OPEN' });
 
+  const setHeaderTitle = (headerTitle) =>
+    dispatch({ type: 'SET_HEADER_TITLE', payload: { headerTitle } });
+
   return {
     state,
     dispatch,
     toggleMobileSidebarOpen,
+    setHeaderTitle,
   };
 };
 

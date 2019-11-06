@@ -10,7 +10,6 @@ import {
   Divider,
 } from '@material-ui/core';
 import { styled } from '@material-ui/styles';
-import styledCom from 'styled-components';
 
 import {
   LocalMall as ProductIcon,
@@ -38,7 +37,7 @@ const StyledList = styled(List)({
 });
 
 const StyledDrawer = styled(Drawer)(({ theme }) => ({
-  '&& > .MuiPaper-root::before': {
+  '& > .MuiPaper-root::before': {
     content: `' '`,
     position: 'fixed',
     display: 'block',
@@ -57,7 +56,7 @@ const StyledDrawer = styled(Drawer)(({ theme }) => ({
     zIndex: -200,
   },
 
-  '&& .MuiPaper-root::after': {
+  '& > .MuiPaper-root::after': {
     content: `' '`,
     position: 'fixed',
     display: 'block',
@@ -74,7 +73,7 @@ const StyledDrawer = styled(Drawer)(({ theme }) => ({
   },
 }));
 
-const FakeToolbar = styled('div')(({ theme }) => ({ ...theme.mixins.toolbar }));
+// const FakeToolbar = styled('div')(({ theme }) => ({ ...theme.mixins.toolbar }));
 
 const mainMenu = [
   { id: 0, label: 'Product', link: '/admin/product', icon: <ProductIcon /> },

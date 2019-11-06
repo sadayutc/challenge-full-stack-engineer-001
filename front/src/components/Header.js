@@ -4,10 +4,11 @@ import {
   Toolbar,
   IconButton,
   Typography,
-  Button,
+  Avatar,
 } from '@material-ui/core';
 import { Menu as MenuIcon } from '@material-ui/icons';
 import { styled } from '@material-ui/styles';
+import { Link } from 'react-router-dom';
 import { useLayout } from '../contexts/layoutContext';
 
 const drawerWidth = 250;
@@ -30,7 +31,10 @@ const MenuButton = styled(IconButton)(({ theme }) => ({
 }));
 
 const Header = () => {
-  const { toggleMobileSidebarOpen } = useLayout();
+  const {
+    state: { headerTitle },
+    toggleMobileSidebarOpen,
+  } = useLayout();
 
   return (
     <StyledAppBar position="fixed">
@@ -44,9 +48,13 @@ const Header = () => {
           <MenuIcon />
         </MenuButton>
         <Title variant="h6" noWrap>
-          {/* TITLE */}
+          {headerTitle || ''}
         </Title>
-        <Button color="inherit">Login</Button>
+        <Avatar
+          component={Link}
+          to="/admin/profile"
+          src={`${process.env.PUBLIC_URL}/images/example-user-01.jpg`}
+        />
       </Toolbar>
     </StyledAppBar>
   );

@@ -2,7 +2,7 @@ import { createMuiTheme } from '@material-ui/core';
 import tinycolor from "tinycolor2";
 
 const primary = "#32303C";
-const secondary = "#CCBCBD";
+const secondary = "#AE5F63";
 
 const lightenRate = 7.5;
 const darkenRate = 15;

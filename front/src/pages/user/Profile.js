@@ -1,5 +1,14 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import { useLayout } from '../../contexts/layoutContext';
 
-export default function Profile() {
+const Profile = () => {
+  const { current: { setHeaderTitle }} = useRef(useLayout());
+
+  useEffect(() => {
+    setHeaderTitle('Profile');
+  }, [setHeaderTitle]);
+
   return <div>THIS IS PROFILE</div>;
-}
+};
+
+export default Profile;

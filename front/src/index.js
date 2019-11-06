@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { CssBaseline, createMuiTheme } from '@material-ui/core';
+import { CssBaseline } from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/styles';
 import App from './App';
-import { theme } from './helpers/theme'
+import { theme } from './helpers/theme';
 import { LayoutProvider } from './contexts/layoutContext';
+import { UserProvider } from './contexts/userContext';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
@@ -12,7 +13,9 @@ ReactDOM.render(
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <LayoutProvider>
-        <App />
+        <UserProvider>
+          <App />
+        </UserProvider>
       </LayoutProvider>
     </ThemeProvider>
   </>,
